@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Linn 💗</title>
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+
+<body>
+  <div class="float-layer" aria-hidden="true" id="floatLayer"></div>
+  <div class="glow" aria-hidden="true" id="glow"></div>
+
+  <header class="topbar">
+    <div class="shell">
+      <div class="brand">💗 Linn</div>
+      <div class="pill">
+        <div class="meter" aria-label="Progreso"><i id="meterFill"></i></div>
+        <div class="pct" id="pct">0%</div>
+        <button class="sound" id="soundBtn" type="button">🔈 OFF</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="wrap">
+      <section class="hero reveal">
+        <div class="spark" id="spark">✨ Helloooo</div>
+        <h1>Helloooooo</h1>
+        <p>
+          Primero quiero decirte que te amo con todo mi corazon, y ojala te guste esto que armé. 
+          Quizas no sea mucho pero es algo que he estado haciendo estos dias <br />
+          Bajá despacito asi ves todo
+        </p>
+
+        <div class="chiprow">
+          <button class="chip" type="button" data-msg="Sos">💞</button>
+          <button class="chip" type="button" data-msg="tan">🌸</button>
+          <button class="chip" type="button" data-msg="pero tan">🎀</button>
+          <button class="chip" type="button" data-msg="tiernaaaa">🫶</button>
+        </div>
+      </section>
+
+      <section class="grid">
+        <article class="card reveal">
+          <h2>Y estos corazones??</h2>
+          <p>
+            Me pregunto que pasará si los tocas...
+          </p>
+          <div class="heartfield">
+            <button class="hbtn" data-pop="8" type="button">💗</button>
+            <button class="hbtn" data-pop="12" type="button">💕</button>
+            <button class="hbtn" data-pop="16" type="button">💘</button>
+            <button class="hbtn" data-pop="20" type="button">💞</button>
+          </div>
+        </article>
+
+        <article class="card reveal softnote">
+          <p>
+            A veces lo simple es lo más lindo: <br/>
+            como cuando pienso en vos y sonrío sin darme cuenta, cuando escucho tu voz y no puedo evitar morirme de amor,
+            cuando la más mínima palabra de amor que me das hace que mi corazon se sienta a 1000 por hora. Como ya te dije
+            antes, es imposible no amarte. 
+          </p>
+        </article>
+
+        <article class="card reveal">
+          <h2>Me amarás tanto como yo?</h2>
+          <p>
+            Cada toque suma un poquito, a ver cuanto me amas?
+          </p>
+          <div class="lovemeter">
+            <div class="bar" aria-label="Medidor"><i id="loveFill"></i></div>
+            <span class="tag" id="loveTag">AMOR: 18%</span>
+            <button class="hbtn" id="loveUp" type="button">Subir 💓</button>
+          </div>
+        </article>
+
+        <article class="card reveal softnote">
+          <p>
+            Ahora necesito que vayas bajando despacio, <br/>
+            porque hay una sorpresa al final jijij.
+          </p>
+          <p>
+            Quiero aprovechar este momento para decirte todo lo que pienso de vos, aunque las palabras nunca alcanzan para describir lo que realmente significas para mí. Desde el momento que llegaste a mi vida, se sintió un cambio enorme: los días eran más alegres, las noches más tranquilas y cada momento contigo se sentía como un regalo.
+            Me encanta cómo me haces reír incluso en los días más pesados o cuando estoy con 0 ánimos, cómo me entiendes sin que tenga que explicar demasiado, y cómo tu presencia convierte lo simple en especial. Amo tus detalles, tus ocurrencias, tu forma de ser y la manera en que me haces sentir que siempre estoy en casa cuando estoy contigo.
+            No necesito grandes cosas, porque solo con un mensaje tuyo se me ilumina la mirada, en una charla larga, en compartir nuestro tiempo o simplemente en quedarnos juntos sin hacer nada. Sos mi persona favorita y la razón por la que quiero ser mejor cada día, y no hay nada que quiera mas que llegar a crecer y avanzar juntos, apoyarte en todo lo que hagas y ser feliz a tu lado.
+            Gracias por ser vos, por darme tu amor sin miedo y por estar a mi lado. Prometo seguir cuidándote, apoyándote y amándote con todo lo que soy.
+          </p>
+          <p>
+            Y con todo esto dicho, hay una ultima cosa que te quiero preguntar...
+          </p>
+          <p>
+            Linn preciosa de mi corazon
+          </p>
+          <p>
+            Queria preguntarte si...
+          </p>
+          
+        </article>
+
+        <article class="final reveal" id="final">
+          <h2>¿Te gustaría pasar San Valentín conmigo?</h2>
+
+          <div class="btnrow">
+            <button class="btn primary" id="yesBtn" type="button">Siii</button>
+            <button class="btn secondary" id="obvioBtn" type="button">Obvio microbio</button>
+          </div>
+        </article>
+      </section>
+    </section>
+  </main>
+
+  <audio id="bgMusic" src="./Coldplay - Yellow(Sub Español + Lyrics).mp3" preload="metadata" loop></audio>
+
+  <canvas id="fireworks" aria-hidden="true"></canvas>
+
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script src="./script.js"></script>
+</body>
+</html>
