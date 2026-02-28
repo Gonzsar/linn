@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Admin - Logs</title>
+  <style>
+    body{font-family:Arial, sans-serif; padding:16px; max-width:900px; margin:auto;}
+    .top{display:flex; gap:10px; flex-wrap:wrap; align-items:center;}
+    button{padding:8px 12px; cursor:pointer;}
+    .row{border:1px solid #ddd; padding:12px; margin:10px 0; border-radius:10px;}
+    .small{color:#666; font-size:12px; margin-top:4px;}
+    .tag{display:inline-block; padding:2px 10px; border-radius:999px; background:#f2f2f2; margin-right:8px;}
+  </style>
+</head>
+<body>
+  <h1>Logs</h1>
+
+  <div class="top">
+    <button id="refreshBtn">Actualizar</button>
+    <button id="clearBtn">Borrar TODO (testing)</button>
+  </div>
+
+  <p class="small">Si ve “Unauthorized”, el token no coincide.</p>
+  <div id="list"></div>
+
+<script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby0RTemcH7WlLHOxLjOK7Md-O_d0UZ3qKkUD1yBNbJ07cI_u5zbVhvzSL89uYSFNTHC/exec";
+const ADMIN_TOKEN = "LinnAdmin_93fK2p9x_2026_secure";
+
+async function loadLogs(){
+  const url = `${SCRIPT_URL}?action=list&token=${encodeURIComponent(ADMIN_TOKEN)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  if(!data.ok){ alert(data.error || "Error"); return; }
+
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  if(!data.rows.length){
+    list.innerHTML = "<p>No hay logs.</p>";
+    return;
+  }
+
+  data.rows.forEach(r => {
+    const div = document.createElement("div");
+    div.className = "row";
+    div.innerHTML = `
+      <div><span class="tag">${r.respuesta}</span> <span class="small">${r.fecha}</span></div>
+      <div class="small">ID: ${r.id}</div>
+      <button data-id="${r.id}">Borrar</button>
+    `;
+    div.querySelector("button").addEventListener("click", () => deleteOne(r.id));
+    list.appendChild(div);
+  });
+}
+
+async function deleteOne(id){
+  const url = `${SCRIPT_URL}?action=delete&token=${encodeURIComponent(ADMIN_TOKEN)}&id=${encodeURIComponent(id)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if(!data.ok){ alert(data.error || "Error"); return; }
+  loadLogs();
+}
+
+async function clearAll(){
+  if(!confirm("¿Borrar todos los logs?")) return;
+  const url = `${SCRIPT_URL}?action=clear&token=${encodeURIComponent(ADMIN_TOKEN)}`;
+  const res = await fetch(url);
+  const data = await res.json();
+  if(!data.ok){ alert(data.error || "Error"); return; }
+  loadLogs();
+}
+
+document.getElementById("refreshBtn").addEventListener("click", loadLogs);
+document.getElementById("clearBtn").addEventListener("click", clearAll);
+loadLogs();
+</script>
+</body>
+</html>

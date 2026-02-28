@@ -1,0 +1,128 @@
+:root {
+  --pink-1: #ffd9e8;
+  --pink-2: #ffc0d9;
+  --pink-3: #ff8fbc;
+  --pink-4: #ff5fa1;
+  --text: #47263a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--pink-1), #fff8fc 50%, var(--pink-2));
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.card {
+  width: min(720px, 100%);
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #ffd1e5;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(255, 95, 161, 0.2);
+  padding: 28px;
+}
+
+h1 {
+  margin-top: 0;
+  font-size: clamp(1.7rem, 4vw, 2.4rem);
+  color: #d43f85;
+}
+
+p {
+  line-height: 1.6;
+  margin: 14px 0;
+}
+
+.buttons {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+button {
+  border: 0;
+  border-radius: 999px;
+  font-size: 1rem;
+  padding: 12px 22px;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease, filter 0.18s ease;
+}
+
+button:hover {
+  transform: translateY(-1px);
+  filter: brightness(1.02);
+}
+
+.accept {
+  background: var(--pink-4);
+  color: white;
+  box-shadow: 0 8px 18px rgba(255, 95, 161, 0.35);
+}
+
+.reject {
+  background: #ffe6f1;
+  color: #8f2f59;
+}
+
+.hint {
+  margin-top: 16px;
+  font-size: 0.9rem;
+  color: #7d5a6a;
+  min-height: 1.2em;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(71, 38, 58, 0.45);
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.28s ease, visibility 0.28s ease;
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.modal-card {
+  background: #fff;
+  max-width: 560px;
+  width: 100%;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 12px 34px rgba(0, 0, 0, 0.22);
+  transform: translateY(16px) scale(0.97);
+  opacity: 0;
+}
+
+.modal.show .modal-card { animation: modalPop 0.32s ease forwards; }
+
+@keyframes modalPop {
+  0% { opacity: 0; transform: translateY(16px) scale(0.97); }
+  60% { opacity: 1; transform: translateY(-2px) scale(1.01); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.modal-card h2 {
+  margin-top: 0;
+  color: #c03578;
+}
+
+.close {
+  margin-top: 12px;
+  background: #f7d5e7;
+  color: #752f52;
+}

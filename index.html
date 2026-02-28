@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Para Linn</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <main class="card">
+      <h1>Hola Linn 💗</h1>
+
+      <p>Te hice esta página porque quería decirte algo de forma simple y sincera.</p>
+      <p>
+        Me gustaría volver a hablar con vos y volver a jugar juntos. Extraño mucho esas
+        charlas y las partidas en <strong>Genshin Impact</strong>, porque realmente la
+        pasaba bien con vos.
+      </p>
+      <p>
+        También me gustaría proponerte si podemos volver a conversar, o al menos intentar
+        volver a ser amigos.
+      </p>
+
+      <div class="buttons">
+        <button class="accept" id="acceptBtn">Aceptar</button>
+        <button class="reject" id="rejectBtn">Rechazar</button>
+      </div>
+
+      <p class="hint" id="statusMsg"></p>
+    </main>
+
+    <section class="modal" id="messageModal" aria-hidden="true">
+      <article class="modal-card">
+        <h2>Gracias por responder</h2>
+        <p id="modalText"></p>
+        <button class="close" id="closeModalBtn">Cerrar</button>
+      </article>
+    </section>
+
+    <script src="app.js"></script>
+  </body>
+</html>
