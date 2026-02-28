@@ -1,9 +1,12 @@
-// URL del Apps Script (Web App) que guarda los logs en Google Sheets
-const LOG_ENDPOINT = "https://script.google.com/macros/s/AKfycby0RTemcH7WlLHOxLjOK7Md-O_d0UZ3qKkUD1yBNbJ07cI_u5zbVhvzSL89uYSFNTHC/exec";
+// 1) Pegue su endpoint de Formspree:
+const FORMSPREE_URL = "https://formspree.io/f/xnjbrkob";
 
 const statusMsg = document.getElementById("statusMsg");
 const modal = document.getElementById("messageModal");
 const modalText = document.getElementById("modalText");
+
+const acceptBtn = document.getElementById("acceptBtn");
+const rejectBtn = document.getElementById("rejectBtn");
 
 function showModal(message) {
   modalText.textContent = message;
@@ -16,41 +19,53 @@ function closeModal() {
   modal.setAttribute("aria-hidden", "true");
 }
 
-// Enviar log SIN afectar la experiencia de ella.
-// Si falla, no pasa nada visible.
-async function logChoice(choice) {
-  if (!LOG_ENDPOINT || LOG_ENDPOINT.includes("PEGAR_AQUI")) return;
+function lockButtons() {
+  acceptBtn.disabled = true;
+  rejectBtn.disabled = true;
+  acceptBtn.style.opacity = "0.7";
+  rejectBtn.style.opacity = "0.7";
+}
 
+async function notify(choice) {
+  if (!FORMSPREE_URL || FORMSPREE_URL.includes("abcdwxyz")) return;
+
+  // Formspree funciona muy bien con FormData (simple y compatible)
+  const data = new FormData();
+  data.append("respuesta", choice);
+  data.append("fecha", new Date().toISOString());
+  data.append("pagina", "Para Linn");
+  // Esto ayuda a identificar el origen (sin IP ni nada sensible)
+  data.append("origen", location.href);
+
+  // Enviar sin molestar la experiencia de ella
   try {
-    // mode:no-cors evita bloqueos del navegador por CORS.
-    // OJO: con no-cors no podés leer si falló o no, pero el envío se intenta igual.
-    await fetch(LOG_ENDPOINT, {
+    await fetch(FORMSPREE_URL, {
       method: "POST",
-      mode: "no-cors",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({
-        respuesta: choice,
-        fecha: new Date().toISOString()
-      })
+      headers: { "Accept": "application/json" },
+      body: data
     });
   } catch (_) {
-    // Silencioso
+    // silencioso
   }
 }
 
-document.getElementById("acceptBtn").addEventListener("click", () => {
+acceptBtn.addEventListener("click", () => {
   const message =
     "Me pone muy contento que hayas dicho que si :), cuando la web me avise que dijiste que si, te envio soli en Genshin. Y desbloqueame de ds porfa";
 
-  logChoice("aceptar");
+  lockButtons();
+  notify("aceptar");
+  statusMsg.textContent = ""; // no mostrar nada técnico
   showModal(message);
 });
 
-document.getElementById("rejectBtn").addEventListener("click", () => {
+rejectBtn.addEventListener("click", () => {
   const message =
     "Entiendo completamente tu decision, lamento haberte molestado de vuelta, ya no lo haré mas. Te deseo lo mejor enserio Linn, sos una gran mujer.";
 
-  logChoice("rechazar");
+  lockButtons();
+  notify("rechazar");
+  statusMsg.textContent = "";
   showModal(message);
 });
 
