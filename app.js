@@ -51,7 +51,7 @@ async function notify(choice) {
 
 acceptBtn.addEventListener("click", () => {
   const message =
-    "Me pone muy contento que hayas dicho que si :), cuando la web me avise que dijiste que si, te envio soli en Genshin. Y desbloqueame de ds porfa";
+    "Me pone muy contento que hayas dicho que si :), cuando la web me avise que dijiste que si, te envio soli en Genshin. Y si podés desbloqueame de Discord para hablar en algun momento";
 
   lockButtons();
   notify("aceptar");
@@ -61,7 +61,7 @@ acceptBtn.addEventListener("click", () => {
 
 rejectBtn.addEventListener("click", () => {
   const message =
-    "Entiendo completamente tu decision, lamento haberte molestado de vuelta, ya no lo haré mas. Te deseo lo mejor enserio Linn, sos una gran mujer.";
+    "Entiendo completamente tu decision, lamento haberte molestado de vuelta, ya no lo haré mas. Te deseo lo mejor enserio Linn, sos una gran persona y te mereces lo más bonito.";
 
   lockButtons();
   notify("rechazar");
