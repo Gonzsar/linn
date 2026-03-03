@@ -463,7 +463,7 @@ function spawnAinoSprites(){
   ainoEl.className = "aino-float";
 
   const img = document.createElement("img");
-  img.src = "assets/aino.png";
+  img.src = "assets/aino.webp";
   img.alt = "Aino";
   ainoEl.appendChild(img);
 
