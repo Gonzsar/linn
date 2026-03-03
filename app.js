@@ -73,3 +73,48 @@ document.getElementById("closeModalBtn").addEventListener("click", closeModal);
 modal.addEventListener("click", (event) => {
   if (event.target === modal) closeModal();
 });
+
+
+
+const secretFab = document.getElementById("secretFab");
+const sparkles = document.getElementById("sparkles");
+
+function spawnSparkles(x, y) {
+  sparkles.classList.add("on");
+  for (let i = 0; i < 18; i++) {
+    const s = document.createElement("div");
+    s.className = "sparkle";
+
+    const dx = (Math.random() * 240 - 120).toFixed(0) + "px";
+    const dy = (Math.random() * 200 - 160).toFixed(0) + "px";
+    s.style.setProperty("--dx", dx);
+    s.style.setProperty("--dy", dy);
+
+    s.style.left = x + "px";
+    s.style.top = y + "px";
+
+    sparkles.appendChild(s);
+    s.addEventListener("animationend", () => s.remove());
+  }
+  setTimeout(() => sparkles.classList.remove("on"), 420);
+}
+
+secretFab.addEventListener("click", (e) => {
+  const rect = secretFab.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+
+  spawnSparkles(x, y);
+
+  // mini-pop
+  secretFab.animate(
+    [{ transform: "scale(1)" }, { transform: "scale(1.12)" }, { transform: "scale(0.96)" }, { transform: "scale(1)" }],
+    { duration: 420, easing: "cubic-bezier(.2,.9,.2,1)" }
+  );
+
+  // transición y redirección
+  document.body.classList.add("leaving");
+  setTimeout(() => {
+    window.location.href = "secret.html";
+  }, 280);
+});
