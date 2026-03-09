@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sala Mora 🪙</title>
+  <link rel="stylesheet" href="games.css" />
+<base target="_blank">
+</head>
+<body>
+
+  <!-- PORTAL / ENTRADA -->
+  <section class="portal show" id="portal" aria-hidden="false">
+    <div class="portal-card">
+      <div class="ring" aria-hidden="true"></div>
+      <div class="ring ring2" aria-hidden="true"></div>
+      <h2>Sala Mora 🪙</h2>
+      <p>Toca para entrar</p>
+      <button class="btn" id="enterBtn">Entrar</button>
+    </div>
+  </section>
+
+  <!-- CAPA DE PARTÍCULAS -->
+  <canvas id="fx" class="fx" aria-hidden="true"></canvas>
+
+  <header class="top">
+    <a class="back" href="index.html" aria-label="Volver">← Volver</a>
+    <h1>Sala Mora 🪙</h1>
+    <p class="sub">Jueguitos lindos</p>
+  </header>
+
+  <main class="grid">
+    
+    <!-- JUEGO 1: MEMORIA -->
+    <section class="panel game-panel">
+      <h2>Memoria 🧠</h2>
+      <p>Encuentra las parejas de emojis en 30 segundos.</p>
+      <div class="game-info">
+        <span class="score">Pares: <span id="memoryPairs">0</span>/6</span>
+        <span class="timer">Tiempo: <span id="memoryTime">30</span>s</span>
+      </div>
+      <div class="memory-grid" id="memoryGrid">
+        <!-- Las cartas se generan con JS -->
+      </div>
+      <button id="memoryReset" class="btn soft">Nuevo juego</button>
+      <div class="result" id="memoryResult"></div>
+    </section>
+
+    <!-- JUEGO 2: ADIVINA EL NÚMERO -->
+    <section class="panel game-panel">
+      <h2>Adivina el Número 🔢</h2>
+      <p>Estoy pensando en un número del 1 al 100...</p>
+      <div class="number-game">
+        <input type="number" id="guessInput" placeholder="Tu número" min="1" max="100" />
+        <button id="guessBtn" class="btn">Adivinar</button>
+      </div>
+      <div class="attempts">Intentos: <span id="attempts">0</span></div>
+      <div class="result" id="guessResult">Escribe un número y adivina.</div>
+      <button id="guessReset" class="btn soft" style="display:none;">Jugar de nuevo</button>
+    </section>
+
+    <!-- JUEGO 3: TIC TAC TOE -->
+    <section class="panel game-panel">
+      <h2>TA TE TI ⭕</h2>
+      <p>Tres en línea con una IA.</p>
+      <div class="game-status" id="tttStatus">Tu turno (X)</div>
+      <div class="tic-tac-toe" id="tttBoard">
+        <div class="ttt-cell" data-index="0"></div>
+        <div class="ttt-cell" data-index="1"></div>
+        <div class="ttt-cell" data-index="2"></div>
+        <div class="ttt-cell" data-index="3"></div>
+        <div class="ttt-cell" data-index="4"></div>
+        <div class="ttt-cell" data-index="5"></div>
+        <div class="ttt-cell" data-index="6"></div>
+        <div class="ttt-cell" data-index="7"></div>
+        <div class="ttt-cell" data-index="8"></div>
+      </div>
+      <button id="tttReset" class="btn soft">Reiniciar</button>
+    </section>
+
+    <!-- JUEGO 4: QUIZ DIVERTIDO -->
+    <section class="panel game-panel">
+      <h2>Genshin Quiz</h2>
+      <p>A ver que tanto sabesss.</p>
+      <div class="quiz-container" id="quizContainer">
+        <div class="quiz-question" id="quizQuestion"></div>
+        <div class="quiz-options" id="quizOptions"></div>
+        <div class="quiz-progress">Pregunta <span id="quizCurrent">1</span> de <span id="quizTotal">5</span></div>
+      </div>
+      <div class="result" id="quizResult" style="display:none;"></div>
+      <button id="quizReset" class="btn soft" style="display:none;">Jugar de nuevo</button>
+    </section>
+
+    <!-- JUEGO 5: CLICKER -->
+    <section class="panel game-panel">
+      <h2>Otro clicker pero ahora de corazoncitos</h2>
+      <p>Toca los corazones y conseguí por lo menos 20</p>
+      <div class="clicker-stats">
+        <span>Puntos: <span id="clickerScore">0</span></span>
+        <span>Tiempo: <span id="clickerTime">20</span>s</span>
+      </div>
+      <div class="clicker-area" id="clickerArea">
+        <p class="clicker-start-text">Presiona "Comenzar" para jugar</p>
+      </div>
+      <button id="clickerStart" class="btn">Comenzar</button>
+      <div class="result" id="clickerResult"></div>
+    </section>
+
+    <!-- JUEGO 6: ROMPECABEZAS -->
+    <section class="panel game-panel">
+      <h2>Rompecabezas 🧩</h2>
+      <p>Ordena los números del 1 al 8</p>
+      <div class="puzzle-grid" id="puzzleGrid">
+        <!-- Las piezas se generan con JS -->
+      </div>
+      <button id="puzzleShuffle" class="btn soft">Mezclar</button>
+      <div class="result" id="puzzleResult"></div>
+    </section>
+
+    <!-- CARTA EXTENSA -->
+    <section class="panel letter-panel" id="cartaSection">
+      <h2>Cartita 💌</h2>
+      <p>Carta especial que escribí para vos</p>
+      <button class="btn" id="openLetterBtn">Leer carta</button>
+    </section>
+
+  </main>
+
+  <!-- POPUP CARTA EXTENSA -->
+  <section class="letter-modal" id="letterModal" aria-hidden="true">
+    <article class="letter-card">
+      <div class="letter-top">
+        <div class="stamp">💌</div>
+        <button class="letter-close" id="closeLetter" aria-label="Cerrar">✕</button>
+      </div>
+      
+      <h3 class="letter-title">Para la que usa lentes que está viendo esto:</h3>
+      
+      <div class="letter-content" id="letterContent">
+        
+        <p class="letter-paragraph">
+          No sé muy bien por dónde empezar porque hay tantas cosas que quiero decirte y no se como te las vas a tomar. 
+          Pero acá voy...
+        </p>
+        
+        <p class="letter-paragraph">
+          Primero que nada, quiero que sepas que eres una persona muy especial para mí. 
+          Desde que te conocí, sabia que iba a ser muy divertido pasar el tiempo contigo siempre. 
+          Tienes esta magia única de hacer que todo sea más bonito, más interesante y mas entretenido.
+        </p>
+        
+        <p class="letter-paragraph">
+          Me agrada tu forma de ser.
+          Me encanta cómo te apasionas por las cosas que te gustan, cómo hablas del juego con esa emoción que contagia, 
+          cómo te ríes de lo que digo (aunque sé que la mayoria de las veces es por compromiso).
+        </p>
+        
+        <p class="letter-paragraph">
+          Muchas veces siento que me gustaria hablar mas seguido contigo, jugar contigo, reír y compartir esos momentos que parecen 
+          simples pero que para mí significan mucho la verdad. No hay nadie más con quien disfrute tanto jugando a eso.
+        </p>
+        
+        <p class="letter-paragraph">
+          Sé que quizás he cometido errores. Pero quiero que sepas que todo 
+          lo que hago viene de un cariño genuino. Me importas más de lo que pensás.
+        </p>
+        
+        <p class="letter-paragraph">
+          Esta página realmente es solo una pequeña muestra de cuánto me importas. Quería crear algo que te hiciera sonreír, 
+          que te diera un momento de diversión o no sé, simplemente que te guste y ya, y que recuerdes que hay alguien que piensa en ti y que te quiere mucho.
+        </p>
+        
+        <p class="letter-paragraph">
+          Gracias por estar y por todos los momentos que hemos compartido. Y gracias por ser exactamente como 
+          sos: única, especial, y divertida.
+        </p>
+        
+        <p class="letter-paragraph closing">
+          With all the cariño del world,<br>
+          Gon 💕
+        </p>
+      </div>
+      
+      <div class="letter-actions">
+        <button class="btn" id="closeLetterBtn2">Cerrar</button>
+      </div>
+    </article>
+  </section>
+
+  <script src="games.js"></script>
+</body>
+</html>

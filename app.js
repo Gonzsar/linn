@@ -1,5 +1,5 @@
 // 1) Pegue su endpoint de Formspree:
-const FORMSPREE_URL = "https://formspree.io/f/xnjbrkob";
+const FORMSPREE_URL = "https://formspree.io/f/xnjbrkob ";
 
 const statusMsg = document.getElementById("statusMsg");
 const modal = document.getElementById("messageModal");
@@ -75,7 +75,7 @@ modal.addEventListener("click", (event) => {
 });
 
 
-
+// Botón de Protogema (Sala secreta)
 const secretFab = document.getElementById("secretFab");
 const sparkles = document.getElementById("sparkles");
 
@@ -116,5 +116,29 @@ secretFab.addEventListener("click", (e) => {
   document.body.classList.add("leaving");
   setTimeout(() => {
     window.location.href = "secret.html";
+  }, 280);
+});
+
+
+// Nuevo botón - Zona de Diversión
+const funFab = document.getElementById("funFab");
+
+funFab.addEventListener("click", (e) => {
+  const rect = funFab.getBoundingClientRect();
+  const x = rect.left + rect.width / 2;
+  const y = rect.top + rect.height / 2;
+
+  spawnSparkles(x, y);
+
+  // mini-pop
+  funFab.animate(
+    [{ transform: "scale(1)" }, { transform: "scale(1.12)" }, { transform: "scale(0.96)" }, { transform: "scale(1)" }],
+    { duration: 420, easing: "cubic-bezier(.2,.9,.2,1)" }
+  );
+
+  // transición y redirección
+  document.body.classList.add("leaving");
+  setTimeout(() => {
+    window.location.href = "games.html";
   }, 280);
 });

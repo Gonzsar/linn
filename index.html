@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Para Linn</title>
     <link rel="stylesheet" href="style.css" />
-  </head>
+  <base target="_blank">
+</head>
 
   <body>
     <main class="card">
@@ -48,10 +49,18 @@
     </section>
 
 
-        <!-- Botón secreto flotante -->
-    <button class="secret-fab" id="secretFab" aria-label="Sala secreta" title="Sala secreta ✨">
-      <img src="assets/0122c.webp" alt="Sala secreta" />
-    </button>
+    <!-- Botones flotantes -->
+    <div class="fab-container">
+      <!-- Botón secreto flotante - Protogema -->
+      <button class="secret-fab" id="secretFab" aria-label="Sala secreta" title="Sala Protogema ✨">
+        <img src="assets/0122c.webp" alt="Sala secreta" />
+      </button>
+
+      <!-- Nuevo botón - Zona de Diversión -->
+      <button class="secret-fab fun-fab" id="funFab" aria-label="Zona de diversión" title="Sala Mora 🪙">
+        <img src="assets/Objeto_Mora.webp" alt="Sala secreta 2" />
+      </button>
+    </div>
 
     <!-- Sparkles -->
     <div class="sparkles" id="sparkles" aria-hidden="true"></div>
