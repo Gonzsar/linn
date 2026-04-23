@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Linn — Páginas Bonitas</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bonitas.css">
+</head>
+<body>
+
+  <div class="particles" id="particles" aria-hidden="true"></div>
+
+  <!-- Top nav -->
+  <header class="top-bar reveal">
+    <a href="index.html" class="back-link">← Volver</a>
+    <h1 class="page-title">Para Linn</h1>
+    <p class="page-sub">Un espacio especial para vos</p>
+  </header>
+
+  <main class="content">
+    <!-- Card principal con el mensaje -->
+    <section class="main-card reveal delay-1">
+      <h2>Hola Linn</h2>
+
+      <p>Te hice esto porque quería preguntarte algo que necesito tu respuesta despues de estos dias.</p>
+      <p>
+        Se que quizas no han pasado los suficientes dias, o no sé lo que realmente estes pensando tu ahora pero,
+        realmente me gustaría volver a hablar y volver a jugar juntos. La verdad extraño las charlas contigo y sobretodo jugar al Genshin, porque
+        no lo juego con nadie mas y es lindo igual tener a alguien con quien charlar de eso, y claro, porque realmente la
+        pasaba bien con vos.
+      </p>
+      <p>
+        En resumen, me gustaría proponerte si podemos volver a conversar, o al menos intentar
+        volver a ser amigos. No voy a tocar tampoco el tema de relación ni nada de eso, ya me dejaste en claro que no querías eso asi que yo lo respeto.
+      </p>
+
+      <p class="question">¿Que opinas?</p>
+
+      <div class="btn-row">
+        <button class="btn btn-accept" id="acceptBtn">Si</button>
+        <button class="btn btn-reject" id="rejectBtn">No</button>
+      </div>
+
+      <p class="note">Agradezco que respondas porque tu respuesta me va a llegar al momento.</p>
+      <p class="status" id="statusMsg"></p>
+    </section>
+
+    <!-- Room navigation cards -->
+    <div class="rooms reveal delay-2">
+      <a href="games.html" class="room-card">
+        <div class="room-icon">
+          <img src="assets/Objeto_Mora.webp" alt="Mora" width="48" height="48">
+        </div>
+        <div class="room-info">
+          <h3>Sala Mora</h3>
+          <p>Jueguitos lindos para entretenerte</p>
+        </div>
+        <span class="room-arrow">→</span>
+      </a>
+
+      <a href="secret.html" class="room-card">
+        <div class="room-icon">
+          <img src="assets/0122c.webp" alt="Protogema" width="48" height="48">
+        </div>
+        <div class="room-info">
+          <h3>Sala Protogema</h3>
+          <p>Cositas secretas y sorpresas</p>
+        </div>
+        <span class="room-arrow">→</span>
+      </a>
+    </div>
+  </main>
+
+  <!-- Modal respuesta -->
+  <section class="modal-overlay" id="messageModal" aria-hidden="true">
+    <article class="modal-card">
+      <h2>Gracias por responder</h2>
+      <p id="modalText"></p>
+      <button class="btn btn-close" id="closeModalBtn">Cerrar</button>
+    </article>
+  </section>
+
+  <script src="bonitas.js"></script>
+</body>
+</html>

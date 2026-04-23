@@ -385,7 +385,7 @@ function drawFX(){
     fctx.globalAlpha = p.a;
     fctx.beginPath();
     fctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
-    fctx.fillStyle = "rgba(255,95,161,1)";
+    fctx.fillStyle = "rgba(244,114,182,0.8)";
     fctx.fill();
   }
 

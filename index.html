@@ -1,71 +1,49 @@
 <!DOCTYPE html>
 <html lang="es">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Para Linn</title>
-    <link rel="stylesheet" href="style.css" />
-  <base target="_blank">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Para Linn</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
+<body>
 
-  <body>
-    <main class="card">
-      <h1>Hola Linn</h1>
+  <div class="particles" id="particles" aria-hidden="true"></div>
 
-      <p>Te hice esto porque quería preguntarte algo que necesito tu respuesta despues de estos dias.</p>
-      <p>
-        Se que quizas no han pasado los suficientes dias, o no sé lo que realmente estes pensando tu ahora pero, 
-        realmente  me gustaría volver a hablar y volver a jugar juntos. La verdad extraño las charlas contigo y sobretodo jugar al Genshin, porque 
-        no lo juego con nadie mas y es lindo igual tener a alguien con quien charlar de eso, y claro, porque realmente la
-        pasaba bien con vos.
-      </p>
-      <p>
-        En resumen, me gustaría proponerte si podemos volver a conversar, o al menos intentar
-        volver a ser amigos. No voy a tocar tampoco el tema de relación ni nada de eso, ya me dejaste en claro que no querías eso asi que yo lo respeto.
-      </p>
+  <main class="landing">
+    <div class="landing-content">
+      <h1 class="title reveal">Para Linn</h1>
+      <p class="subtitle reveal delay-1">Un rinconcito especial hecho solo para vos</p>
 
-      <p>
-        ¿Que opinas?
-      </p>
+      <div class="choices reveal delay-2">
+        <a href="bonitas.html" class="choice-card">
+          <div class="choice-glow"></div>
+          <div class="choice-icon">💕</div>
+          <h2>Mis Páginas para Ti</h2>
+          <p>Juegos, cartas, mensajes y todas las cosas bonitas que preparé</p>
+          <div class="choice-footer">
+            <span class="choice-arrow">Entrar</span>
+          </div>
+        </a>
 
-      <div class="buttons">
-        <button class="accept" id="acceptBtn">Si</button>
-        <button class="reject" id="rejectBtn">No</button>
+        <a href="libro.html" class="choice-card card-libro">
+          <div class="choice-glow"></div>
+          <div class="choice-icon">📖</div>
+          <h2>Día del Libro</h2>
+          <p>23 de Abril — Algo especial que quiero regalarte</p>
+          <div class="choice-footer">
+            <span class="choice-arrow">Descubrir</span>
+          </div>
+        </a>
       </div>
 
-      <p>
-        Agradezco que respondas porque tu respuesta me va a llegar al momento.
-      </p>
-
-      <p class="hint" id="statusMsg"></p>
-    </main>
-
-    <section class="modal" id="messageModal" aria-hidden="true">
-      <article class="modal-card">
-        <h2>Gracias por responder</h2>
-        <p id="modalText"></p>
-        <button class="close" id="closeModalBtn">Cerrar</button>
-      </article>
-    </section>
-
-
-    <!-- Botones flotantes -->
-    <div class="fab-container">
-      <!-- Botón secreto flotante - Protogema -->
-      <button class="secret-fab" id="secretFab" aria-label="Sala secreta" title="Sala Protogema ✨">
-        <img src="assets/0122c.webp" alt="Sala secreta" />
-      </button>
-
-      <!-- Nuevo botón - Zona de Diversión -->
-      <button class="secret-fab fun-fab" id="funFab" aria-label="Zona de diversión" title="Sala Mora 🪙">
-        <img src="assets/Objeto_Mora.webp" alt="Sala secreta 2" />
-      </button>
+      <p class="signature reveal delay-3">Hecho con cariño por Gon 💕</p>
     </div>
+  </main>
 
-    <!-- Sparkles -->
-    <div class="sparkles" id="sparkles" aria-hidden="true"></div>
-
-
-    <script src="app.js"></script>
-  </body>
+  <script src="app.js"></script>
+</body>
 </html>
