@@ -290,3 +290,33 @@ body {
     margin-bottom: 40px;
   }
 }
+
+
+/* ── Tarjeta Día del Lector ── */
+.choices { grid-template-columns: repeat(3, 1fr); }
+
+.card-lector .choice-icon {
+  background: linear-gradient(145deg, #ede9fe, #ddd6fe);
+  color: #6d28d9;
+  box-shadow:
+    0 8px 32px rgba(109,40,217,.14),
+    inset 0 -2px 4px rgba(109,40,217,.1);
+}
+
+.card-lector h2 { color: #6d28d9; }
+
+.card-lector .choice-arrow {
+  background: linear-gradient(135deg, #a78bfa, #7c3aed);
+  box-shadow: 0 8px 24px rgba(124,58,237,.25);
+}
+
+.card-lector:hover .choice-arrow {
+  box-shadow: 0 12px 32px rgba(124,58,237,.35);
+}
+
+@media (max-width: 980px) {
+  .choices { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .choices { grid-template-columns: 1fr; }
+}

@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1">
+  <meta name="theme-color" content="#0b0a1a">
+  <title>Día del Lector — Nuestra Historia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Quicksand:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="lector.css">
+</head>
+<body class="is-book">
+
+<audio id="bgm" src="honeybee.mp3" loop preload="auto"></audio>
+
+<!-- ══════════════ HUD ══════════════ -->
+<a class="hud-back" href="index.html" id="hudBack">← Volver</a>
+
+<button class="hud-mute" id="muteBtn" aria-label="Silenciar música" hidden>
+  <svg viewBox="0 0 24 24" class="ic-on"  aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M16.5 8.5a5 5 0 0 1 0 7" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M19 6a8.5 8.5 0 0 1 0 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+  <svg viewBox="0 0 24 24" class="ic-off" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z"/><path d="M17 9.5l5 5M22 9.5l-5 5" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"/></svg>
+</button>
+
+<nav class="hud-progress" id="progress" hidden aria-label="Capítulos">
+  <button class="dot" data-go="1"><span></span><em>Roblox</em></button>
+  <button class="dot" data-go="2"><span></span><em>Las llamadas</em></button>
+  <button class="dot" data-go="3"><span></span><em>Teyvat</em></button>
+  <button class="dot" data-go="4"><span></span><em>Lo que falta</em></button>
+  <button class="dot" data-go="5"><span></span><em>La carta</em></button>
+</nav>
+
+<!-- ══════════════ ACTO 0 · EL ESCRITORIO ══════════════ -->
+<section class="act-desk" id="actDesk">
+  <div class="desk-glow" aria-hidden="true"></div>
+  <div class="desk-dust" id="deskDust" aria-hidden="true"></div>
+
+  <div class="desk-eyebrow">24 de agosto · Día del Lector</div>
+
+  <div class="book-stage" id="bookStage">
+    <button class="book" id="book" aria-label="Abrir el libro">
+      <div class="bk-shadow" aria-hidden="true"></div>
+
+      <div class="bk-body">
+        <div class="bk-back"></div>
+        <div class="bk-block"></div>
+        <div class="bk-spine">
+          <span class="bk-spine-txt">NUESTRA HISTORIA</span>
+        </div>
+
+        <div class="bk-cover" id="bkCover">
+          <div class="bk-face bk-front">
+            <div class="bk-front-inner">
+              <div class="bk-rule"></div>
+              <svg class="bk-crest" viewBox="0 0 120 120" aria-hidden="true">
+                <circle cx="60" cy="60" r="44" fill="none" stroke="currentColor" stroke-width="1.1" opacity=".55"/>
+                <circle cx="60" cy="60" r="37" fill="none" stroke="currentColor" stroke-width=".7" opacity=".35"/>
+                <path d="M60 30c7 12 18 17 18 30a18 18 0 0 1-36 0c0-13 11-18 18-30z" fill="currentColor" opacity=".82"/>
+                <path d="M60 44c3.5 6 9 8.5 9 15a9 9 0 0 1-18 0c0-6.5 5.5-9 9-15z" fill="#1a1226" opacity=".5"/>
+                <path d="M28 60h-13M105 60h-13" stroke="currentColor" stroke-width="1.1" opacity=".5" stroke-linecap="round"/>
+                <circle cx="60" cy="12" r="2.4" fill="currentColor" opacity=".7"/>
+                <circle cx="60" cy="108" r="2.4" fill="currentColor" opacity=".7"/>
+              </svg>
+              <h1 class="bk-title">Nuestra<br>Historia</h1>
+              <div class="bk-rule"></div>
+              <p class="bk-byline">Gon &amp; Linn</p>
+            </div>
+          </div>
+          <div class="bk-face bk-inner"></div>
+        </div>
+      </div>
+    </button>
+  </div>
+
+  <p class="desk-cta" id="deskCta">
+    <span class="cta-pulse" aria-hidden="true"></span>
+    Tocá el libro
+  </p>
+  <p class="desk-hint">Con sonido se disfruta más ✦</p>
+</section>
+
+<!-- ══════════════ FLASH DE APERTURA ══════════════ -->
+<div class="open-flash" id="openFlash" aria-hidden="true"></div>
+<div class="turn-sheet" id="turnSheet" aria-hidden="true"><div class="turn-page"></div></div>
+
+<!-- ══════════════ CAPÍTULOS ══════════════ -->
+<main class="story" id="story" hidden>
+
+<!-- ─────────── CAP 1 · MIC UP ─────────── -->
+<section class="chapter" id="ch1" data-ch="1">
+  <div class="ch-scene scene-roblox">
+    <div class="rbx-sky" aria-hidden="true"></div>
+    <div class="rbx-clouds" aria-hidden="true">
+      <span class="rcloud c1"></span><span class="rcloud c2"></span><span class="rcloud c3"></span><span class="rcloud c4"></span>
+    </div>
+    <canvas id="cageCanvas" class="rbx-canvas" aria-label="Escena de Roblox"></canvas>
+    <div class="rbx-ui" id="rbxUi" hidden>
+      <div class="rbx-tapper" id="rbxTapper">
+        <span class="rbx-tap-ring"></span>
+        <span class="rbx-tap-label">TOCÁ PARA SALTAR</span>
+      </div>
+      <div class="rbx-attempts" id="rbxAttempts" aria-hidden="true"></div>
+    </div>
+  </div>
+
+  <div class="ch-meta">
+    <span class="ch-num">Capítulo uno</span>
+    <span class="ch-name">Parecés una mosca</span>
+  </div>
+
+  <div class="hotspots" data-for="1">
+    <button class="hs" style="left:15%;top:56%"  data-title="MIC UP"        data-body="Un juego de Roblox donde entrás a un server y hablás. Nada más. Y resultó ser el lugar exacto donde tenía que estar ese día."></button>
+    <button class="hs" style="left:83%;top:38%"  data-title="Viruz"          data-body="Mi nick. Con z, porque a los 12 años uno toma decisiones."></button>
+    <button class="hs" style="left:50%;top:22%"  data-title="14 · 11 · 2025" data-body="La fecha. Creo. Nunca la anoté porque no sabía que iba a importar tanto."></button>
+  </div>
+</section>
+
+<!-- ─────────── CAP 2 · LAS LLAMADAS ─────────── -->
+<section class="chapter" id="ch2" data-ch="2">
+  <div class="ch-scene scene-night">
+
+    <div class="layer" data-depth="0.10" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nSky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#070b1e"/>
+            <stop offset="42%"  stop-color="#111a3d"/>
+            <stop offset="72%"  stop-color="#22285c"/>
+            <stop offset="100%" stop-color="#3a3168"/>
+          </linearGradient>
+          <radialGradient id="nMoonGlow" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#fff6d8" stop-opacity=".55"/>
+            <stop offset="45%"  stop-color="#cfd6ff" stop-opacity=".16"/>
+            <stop offset="100%" stop-color="#cfd6ff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="700" fill="url(#nSky)"/>
+        <circle cx="676" cy="118" r="210" fill="url(#nMoonGlow)"/>
+        <circle cx="676" cy="118" r="46" fill="#fdf6de"/>
+        <circle cx="692" cy="108" r="42" fill="#111a3d" opacity=".92"/>
+        <g fill="#ffffff" class="starfield" data-stars="90" data-seed="2"></g>
+      </svg>
+    </div>
+
+    <div class="layer" data-depth="0.26" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <path d="M0 700V560l70-16 34-52 46 30 58-74 40 62 76-30 52 46 60-88 54 70 64-26 44 58 70-40 56 52 62-70 50 62 74-18 66 44 84-38 40 46v132z"
+              fill="#0d1330" opacity=".85"/>
+      </svg>
+    </div>
+
+    <div class="layer" data-depth="0.55">
+      <div class="win-pair">
+        <div class="win win-a">
+          <div class="win-frame">
+            <div class="win-glow"></div>
+            <div class="win-cross"></div>
+            <div class="win-figure fig-gon"></div>
+          </div>
+          <span class="win-tag">Gon</span>
+        </div>
+        <div class="win-thread" aria-hidden="true"><span class="pulse"></span></div>
+        <div class="win win-b">
+          <div class="win-frame">
+            <div class="win-glow"></div>
+            <div class="win-cross"></div>
+            <div class="win-figure fig-linn"></div>
+          </div>
+          <span class="win-tag">Linn</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="layer layer-ui" data-depth="0.85">
+      <div class="dc-panel" id="dcPanel">
+        <div class="dc-head">
+          <span class="dc-dot"></span>
+          <span class="dc-room">llamada · sin hora de fin</span>
+          <span class="dc-time" id="dcTime">00:00</span>
+        </div>
+        <div class="dc-wave" id="dcWave" aria-hidden="true"></div>
+        <ul class="dc-chat" id="dcChat"></ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="ch-meta">
+    <span class="ch-num">Capítulo dos</span>
+    <span class="ch-name">Las llamadas</span>
+  </div>
+
+  <div class="hotspots" data-for="2">
+    <button class="hs" style="left:13%;top:30%" data-title="La luna" data-body="Testigo principal. Muchas veces la vimos moverse mientras seguíamos hablando de cualquier cosa."></button>
+    <button class="hs" style="left:50%;top:70%" data-title="Tu voz"  data-body="Nunca te lo dije bien: me gusta mucho tu voz. Es de esas que hacen que no te importe de qué se está hablando."></button>
+    <button class="hs" style="left:87%;top:57%" data-title="Discord" data-body="Empezamos hablando dentro de Roblox. En algún momento pasamos a Discord y ahí ya no paramos."></button>
+  </div>
+</section>
+
+<!-- ─────────── CAP 3 · NOD'KRAI ─────────── -->
+<section class="chapter" id="ch3" data-ch="3">
+  <div class="ch-scene scene-nodkrai">
+
+    <!-- L1 · cielo + estrellas -->
+    <div class="layer" data-depth="0.06" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nkSky" x1="0" y1="0" x2="0.15" y2="1">
+            <stop offset="0%"   stop-color="#070c2c"/>
+            <stop offset="26%"  stop-color="#0e153c"/>
+            <stop offset="52%"  stop-color="#1b2360"/>
+            <stop offset="74%"  stop-color="#3b3a86"/>
+            <stop offset="90%"  stop-color="#7d6ea8"/>
+            <stop offset="100%" stop-color="#a892b8"/>
+          </linearGradient>
+          <radialGradient id="nkHaze" cx="26%" cy="88%" r="58%">
+            <stop offset="0%"   stop-color="#d9b8d0" stop-opacity=".50"/>
+            <stop offset="55%"  stop-color="#8f7fc0" stop-opacity=".18"/>
+            <stop offset="100%" stop-color="#8f7fc0" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="nkAur" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#7ae4ff" stop-opacity=".26"/>
+            <stop offset="100%" stop-color="#7ae4ff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1400" height="780" fill="url(#nkSky)"/>
+        <rect width="1400" height="780" fill="url(#nkHaze)"/>
+        <g class="nk-aurora">
+          <ellipse cx="430" cy="250" rx="430" ry="120" fill="url(#nkAur)"/>
+          <ellipse cx="980" cy="180" rx="380" ry="96"  fill="url(#nkAur)" opacity=".7"/>
+        </g>
+        <g fill="#ffffff" class="starfield" data-stars="120" data-seed="3"></g>
+      </svg>
+    </div>
+
+    <!-- L2 · la estructura flotante -->
+    <div class="layer" data-depth="0.18">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nkSlab" x1="0" y1="0" x2="0.4" y2="1">
+            <stop offset="0%"   stop-color="#e6e9fb"/>
+            <stop offset="55%"  stop-color="#a8afd8"/>
+            <stop offset="100%" stop-color="#5c63a0"/>
+          </linearGradient>
+          <radialGradient id="nkStar" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#ffffff"  stop-opacity="1"/>
+            <stop offset="18%"  stop-color="#d6f4ff"  stop-opacity=".92"/>
+            <stop offset="46%"  stop-color="#7fd6ff"  stop-opacity=".34"/>
+            <stop offset="100%" stop-color="#4aa8ff"  stop-opacity="0"/>
+          </radialGradient>
+          <linearGradient id="nkBeam" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#cfefff" stop-opacity=".55"/>
+            <stop offset="60%"  stop-color="#9fd8ff" stop-opacity=".14"/>
+            <stop offset="100%" stop-color="#9fd8ff" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <g transform="translate(-110,52)">
+        <g class="nk-float">
+          <path d="M690 92 Q812 66 906 108 Q828 126 762 120 Q716 114 690 92Z"   fill="url(#nkSlab)" opacity=".92"/>
+          <path d="M906 108 Q960 140 948 196 Q906 168 878 132Z"                 fill="url(#nkSlab)" opacity=".72"/>
+          <path d="M736 150 Q828 130 892 166 Q816 190 762 178 Q734 168 736 150Z" fill="url(#nkSlab)" opacity=".85"/>
+          <path d="M660 176 Q706 160 742 172 Q712 190 682 190Z"                 fill="url(#nkSlab)" opacity=".55"/>
+          <path d="M900 208 Q944 200 966 222 Q930 236 906 228Z"                 fill="url(#nkSlab)" opacity=".5"/>
+          <path d="M812 118 L836 126 L800 300 L788 296Z"                        fill="url(#nkSlab)" opacity=".9"/>
+          <path d="M800 300 L788 296 L792 344Z"                                 fill="#8a92c8"      opacity=".7"/>
+          <g class="nk-rays">
+            <path d="M812 44  L818 132 L806 132Z" fill="#cfefff" opacity=".6"/>
+            <path d="M812 240 L818 152 L806 152Z" fill="#cfefff" opacity=".45"/>
+            <path d="M700 142 L800 148 L800 136Z" fill="#cfefff" opacity=".4"/>
+            <path d="M930 142 L826 148 L826 136Z" fill="#cfefff" opacity=".4"/>
+          </g>
+          <circle cx="812" cy="142" r="88" fill="url(#nkStar)"/>
+          <circle cx="812" cy="142" r="7"  fill="#ffffff"/>
+        </g>
+        <path d="M792 202 L832 202 L900 660 L724 660Z" fill="url(#nkBeam)" class="nk-beam"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- L3 · montañas lejanas -->
+    <div class="layer" data-depth="0.30" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nkFar" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#9d9ad2" stop-opacity=".78"/>
+            <stop offset="100%" stop-color="#7f86bd" stop-opacity=".22"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 780V520l120-96 76 62 92-120 108 126 84-52 130 92 96-108 122 130 88-70 118 96 96-58 124 96 46-40v302z" fill="url(#nkFar)"/>
+      </svg>
+    </div>
+
+    <!-- L4 · montañas medias -->
+    <div class="layer" data-depth="0.46" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nkMid" x1="0" y1="0" x2="0.2" y2="1">
+            <stop offset="0%"   stop-color="#6c74b8"/>
+            <stop offset="48%"  stop-color="#454c8e"/>
+            <stop offset="100%" stop-color="#2b2f66"/>
+          </linearGradient>
+          <linearGradient id="nkMidLit" x1="0" y1="0" x2="1" y2="0.6">
+            <stop offset="0%"   stop-color="#b7bcf0" stop-opacity=".55"/>
+            <stop offset="100%" stop-color="#b7bcf0" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+        <path d="M0 780V596l104-58 92 40 118-96 96 74 74-40 96 58 90-126 128 150 104-72 120 92 108-56 76 52 94-30v202z" fill="url(#nkMid)"/>
+        <path d="M690 440 L744 506 L818 590 L700 560Z" fill="url(#nkMidLit)"/>
+        <path d="M310 486 L364 540 L286 566Z"          fill="url(#nkMidLit)" opacity=".7"/>
+      </svg>
+    </div>
+
+    <!-- L5 · ruinas y faros -->
+    <div class="layer" data-depth="0.62" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <radialGradient id="nkLampG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#ffd89a" stop-opacity=".85"/>
+            <stop offset="45%"  stop-color="#ffb45e" stop-opacity=".26"/>
+            <stop offset="100%" stop-color="#ffb45e" stop-opacity="0"/>
+          </radialGradient>
+          <radialGradient id="nkBeaconG" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#e8fbff" stop-opacity=".9"/>
+            <stop offset="40%"  stop-color="#84dcff" stop-opacity=".3"/>
+            <stop offset="100%" stop-color="#84dcff" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <g class="nk-ruins">
+          <g transform="translate(1040 596)">
+            <rect x="-4"  y="-56" width="9"  height="56" fill="#2a2550"/>
+            <rect x="26"  y="-44" width="9"  height="44" fill="#2a2550"/>
+            <rect x="56"  y="-62" width="9"  height="62" fill="#2a2550"/>
+            <rect x="-12" y="-66" width="86" height="8"  fill="#332c60"/>
+            <circle cx="0"  cy="-60" r="26" fill="url(#nkLampG)" class="nk-tw"/>
+            <circle cx="60" cy="-66" r="22" fill="url(#nkLampG)" class="nk-tw d2"/>
+          </g>
+          <g transform="translate(232 636)">
+            <rect x="0"  y="-48" width="8"  height="48" fill="#241f4a"/>
+            <rect x="28" y="-64" width="8"  height="64" fill="#241f4a"/>
+            <rect x="-8" y="-68" width="54" height="7"  fill="#2d2757"/>
+            <circle cx="32" cy="-64" r="24" fill="url(#nkLampG)" class="nk-tw d3"/>
+          </g>
+          <g transform="translate(636 660)">
+            <rect x="0"  y="-38" width="7" height="38" fill="#221d46"/>
+            <rect x="22" y="-52" width="7" height="52" fill="#221d46"/>
+            <circle cx="25" cy="-52" r="20" fill="url(#nkLampG)" class="nk-tw d1"/>
+          </g>
+        </g>
+
+        <g class="nk-beacons">
+          <g transform="translate(430 618)">
+            <rect x="-2" y="-96" width="4" height="96" fill="#3a4384"/>
+            <circle cx="0" cy="-100" r="34"  fill="url(#nkBeaconG)" class="nk-tw d2"/>
+            <circle cx="0" cy="-100" r="4.5" fill="#f2feff"/>
+          </g>
+          <g transform="translate(876 640)">
+            <rect x="-2" y="-84" width="4" height="84" fill="#3a4384"/>
+            <circle cx="0" cy="-88" r="30" fill="url(#nkBeaconG)" class="nk-tw"/>
+            <circle cx="0" cy="-88" r="4"  fill="#f2feff"/>
+          </g>
+          <g transform="translate(1246 656)">
+            <rect x="-2" y="-70" width="4" height="70" fill="#3a4384"/>
+            <circle cx="0" cy="-74" r="26"  fill="url(#nkBeaconG)" class="nk-tw d3"/>
+            <circle cx="0" cy="-74" r="3.5" fill="#f2feff"/>
+          </g>
+        </g>
+      </svg>
+    </div>
+
+    <!-- L6 · niebla + primer plano -->
+    <div class="layer" data-depth="0.80" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1400 780" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="nkFog" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%"   stop-color="#b9b2e0" stop-opacity="0"/>
+            <stop offset="50%"  stop-color="#b9b2e0" stop-opacity=".30"/>
+            <stop offset="100%" stop-color="#b9b2e0" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="nkNear" x1="0" y1="0" x2="0.1" y2="1">
+            <stop offset="0%"   stop-color="#221d4c"/>
+            <stop offset="100%" stop-color="#0d0a26"/>
+          </linearGradient>
+        </defs>
+        <rect y="560" width="1400" height="120" fill="url(#nkFog)" class="nk-fog"/>
+        <path d="M0 780V690l128-40 116 34 140-52 152 58 130-40 156 52 148-46 138 44 122-34 170 42v72z" fill="url(#nkNear)"/>
+      </svg>
+    </div>
+
+    <!-- equipo -->
+    <div class="layer layer-ui" data-depth="0.92">
+      <div class="party" id="party" hidden>
+        <div class="party-main">
+          <button class="unit u-flins" data-unit="flins">
+            <span class="u-ring"></span><span class="u-el">⚡</span>
+            <span class="u-name">Flins</span><span class="u-sub">el de ella</span>
+          </button>
+          <span class="party-amp">&amp;</span>
+          <button class="unit u-hutao" data-unit="hutao">
+            <span class="u-ring"></span><span class="u-el">🦋</span>
+            <span class="u-name">Hu Tao</span><span class="u-sub">el mío</span>
+          </button>
+        </div>
+        <div class="party-row">
+          <button class="unit sm u-columbina" data-unit="columbina"><span class="u-el">🌙</span><span class="u-name">Columbina</span></button>
+          <button class="unit sm u-ineffa"    data-unit="ineffa"><span class="u-el">✦</span><span class="u-name">Ineffa</span></button>
+          <button class="unit sm u-chasca"    data-unit="chasca"><span class="u-el">🪶</span><span class="u-name">Chasca</span></button>
+          <button class="unit sm u-furina"    data-unit="furina"><span class="u-el">💧</span><span class="u-name">Furina</span></button>
+        </div>
+      </div>
+
+      <div class="wish-box" id="wishBox" hidden>
+        <button class="wish-btn" id="wishBtn">
+          <span class="wish-star">✦</span><span>Hacer un deseo</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ch-meta">
+    <span class="ch-num">Capítulo tres</span>
+    <span class="ch-name">Teyvat</span>
+  </div>
+
+  <div class="hotspots" data-for="3">
+    <button class="hs" style="left:9%;top:70%"  data-title="Explorar"           data-body="Lo mejor no eran los domos ni los jefes. Era andar dando vueltas sin rumbo, hablando de cualquier otra cosa, mientras uno de los dos se caía de un acantilado."></button>
+    <button class="hs" style="left:29%;top:33%" data-title="Jefes semanales"    data-body="Ritual fijo. Esa mezcla hermosa de «dale que lo tenemos» con «no, otra vez no»."></button>
+    <button class="hs" style="left:70%;top:66%" data-title="La consola"         data-body="Vos jugando en consola y estresándote en dos segundos es de las cosas que más gracia me dan. No cambies eso nunca."></button>
+    <button class="hs" style="left:90%;top:28%" data-title="Compartir pantalla" data-body="Cuando a alguno le salía un 5★ había que mostrarlo YA. No servía contarlo, había que verlo."></button>
+  </div>
+</section>
+
+<!-- ─────────── CAP 4 · LO QUE FALTA ─────────── -->
+<section class="chapter" id="ch4" data-ch="4">
+  <div class="ch-scene scene-shelf">
+
+    <div class="layer" data-depth="0.08" aria-hidden="true">
+      <svg class="fill" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+        <defs>
+          <linearGradient id="shWall" x1="0" y1="0" x2="0.3" y2="1">
+            <stop offset="0%"   stop-color="#2a1a35"/>
+            <stop offset="55%"  stop-color="#3d2440"/>
+            <stop offset="100%" stop-color="#1b1026"/>
+          </linearGradient>
+          <radialGradient id="shLamp" cx="50%" cy="50%" r="50%">
+            <stop offset="0%"   stop-color="#ffca8a" stop-opacity=".40"/>
+            <stop offset="60%"  stop-color="#ff9c6a" stop-opacity=".10"/>
+            <stop offset="100%" stop-color="#ff9c6a" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+        <rect width="1200" height="700" fill="url(#shWall)"/>
+        <ellipse cx="600" cy="250" rx="620" ry="360" fill="url(#shLamp)"/>
+      </svg>
+    </div>
+
+    <div class="layer layer-ui" data-depth="0.7">
+      <div class="shelf-wrap">
+        <h3 class="shelf-title">Todavía en la estantería</h3>
+
+        <div class="shelf-row">
+          <button class="gbox gbox-cod" data-game="cod">
+            <span class="gbox-spine"></span>
+            <span class="gbox-face">
+              <span class="gbox-icon">🎯</span>
+              <span class="gbox-name">Call of Duty</span>
+              <span class="gbox-sub">sin abrir</span>
+            </span>
+            <span class="gbox-stamp">PENDIENTE</span>
+          </button>
+
+          <button class="gbox gbox-sam" data-game="sam">
+            <span class="gbox-spine"></span>
+            <span class="gbox-face">
+              <span class="gbox-icon">🕯️</span>
+              <span class="gbox-name">Shift at Midnight</span>
+              <span class="gbox-sub">sin abrir</span>
+            </span>
+            <span class="gbox-stamp">PENDIENTE</span>
+          </button>
+        </div>
+
+        <div class="shelf-plank" aria-hidden="true"></div>
+
+        <div class="cal-row">
+          <div class="cal">
+            <div class="cal-top">NOV</div>
+            <div class="cal-day">14</div>
+            <div class="cal-note">nos conocimos<br><span>2025</span></div>
+          </div>
+          <div class="cal cal-star">
+            <div class="cal-top">MAY</div>
+            <div class="cal-day">23</div>
+            <div class="cal-note">tu cumple<br><span>marcado para siempre</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ch-meta">
+    <span class="ch-num">Capítulo cuatro</span>
+    <span class="ch-name">Lo que falta</span>
+  </div>
+
+  <div class="hotspots" data-for="4">
+    <button class="hs" style="left:11%;top:24%" data-title="Solo dos juegos" data-body="Roblox y Genshin. Suena a poco escrito así, pero fueron un montón de horas."></button>
+    <button class="hs" style="left:89%;top:74%" data-title="La lista"        data-body="Esta lista existe porque doy por hecho que va a haber más. Es la parte optimista de todo esto."></button>
+  </div>
+</section>
+
+<!-- ─────────── CAP 5 · LA CARTA ─────────── -->
+<section class="chapter" id="ch5" data-ch="5">
+  <div class="ch-scene scene-letter">
+    <div class="letter-amb" aria-hidden="true"></div>
+    <div class="letter-motes" id="letterMotes" aria-hidden="true"></div>
+
+    <div class="paper" id="paper">
+      <div class="paper-edge" aria-hidden="true"></div>
+      <div class="paper-body">
+        <p class="letter-date">24 de agosto — Día del Lector</p>
+        <h2 class="letter-h">Para Linn</h2>
+
+        <div class="letter-text" id="letterText">
+          <p>Hellooo, perdoname por habértelo dado ahora y no justo el 24, pero estuve desanimado y me costó terminarlo. La verdad espero tener muchos más recuerdos con vos y que sigamos hablando por mucho más tiempo, me caés muy bien y me encanta hablar con vos. Espero que te haya gustado todo esto jiji</p>
+
+          <p>Hay algo que me gustaría decirte y que no tiene nada que ver con esto, y es que a veces cuando no me ves los mensajes o no querés hablar conmigo, siento que te estás aburriendo o que ya no te llena tanto el hablarme o el pasar tiempo conmigo. Pero entiendo que quizás sea porque te sentís mal, o porque algo malo pasa en tu vida y que no querés pasar tiempo con más gente.</p>
+
+          <p>Y yo tampoco quiero parecer o dar a entender que me avises de todo lo que te pasa, pero yo siempre espero un tiempo en el día para estar con vos porque la paso bien, y sos una persona que siempre me hace reír, pasar un momento divertido y lindo. Así que si algo pasa y no me querés hablar, solo un pequeñito aviso me haría sentir mejor, así no pienso cosas raras.</p>
+
+          <p>Ojalá te haya gustado y feliz día atrasado, te quiero mucho.</p>
+        </div>
+
+        <p class="letter-sign">Gon</p>
+      </div>
+    </div>
+
+    <div class="letter-end" id="letterEnd" hidden>
+      <p class="end-line">Feliz Día del Lector, Linn ✦</p>
+      <div class="end-btns">
+        <button class="end-btn" id="replayBtn">Leerlo de nuevo</button>
+        <a class="end-btn ghost" href="index.html">Volver al inicio</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="letter-scrim" aria-hidden="true"></div>
+
+  <div class="ch-meta">
+    <span class="ch-num">Última página</span>
+    <span class="ch-name">La carta</span>
+  </div>
+</section>
+
+</main>
+
+<!-- ══════════════ NARRADOR ══════════════ -->
+<div class="narrator" id="narrator" hidden>
+  <div class="narr-card" id="narrCard">
+    <span class="narr-who" id="narrWho" hidden></span>
+    <p class="narr-text" id="narrText"></p>
+    <button class="narr-next" id="narrNext">
+      <span class="nn-label">Seguir</span>
+      <span class="nn-caret" aria-hidden="true">›</span>
+    </button>
+  </div>
+</div>
+
+<!-- ══════════════ TARJETA DE RECUERDO ══════════════ -->
+<div class="memcard" id="memCard" hidden>
+  <div class="mem-backdrop" id="memBackdrop"></div>
+  <article class="mem-inner">
+    <span class="mem-mark" aria-hidden="true">✦</span>
+    <h3 id="memTitle"></h3>
+    <p id="memBody"></p>
+    <button class="mem-close" id="memClose">Cerrar</button>
+  </article>
+</div>
+
+<!-- ══════════════ DESEO (GACHA) ══════════════ -->
+<div class="wish-overlay" id="wishOverlay" hidden aria-hidden="true">
+  <div class="wo-sky"></div>
+  <div class="wo-neb"></div>
+  <div class="wo-stars" id="woStars"></div>
+
+  <div class="wo-comet"><i class="wo-trail"></i><i class="wo-head"></i></div>
+
+  <div class="wo-shock"></div>
+  <div class="wo-shock s2"></div>
+  <div class="wo-burst"></div>
+  <div class="wo-rays"></div>
+  <div class="wo-halo"></div>
+  <div class="wo-floor"></div>
+
+  <div class="wo-char">
+    <img id="woImg" src="assets/flins.webp" alt="Flins" decoding="async">
+    <div class="wo-emblem">⚡</div>
+  </div>
+
+  <div class="wo-sparks" id="woSparks"></div>
+
+  <div class="wo-name">
+    <div class="won-stars"><i>★</i><i>★</i><i>★</i><i>★</i><i>★</i></div>
+    <div class="won-title">Flins</div>
+    <div class="won-tag">Electro · Nod&#39;Krai</div>
+  </div>
+
+  <p class="wo-hint" id="woHint">tocá para continuar</p>
+</div>
+
+<script src="lector-game.js"></script>
+<script src="lector.js"></script>
+</body>
+</html>

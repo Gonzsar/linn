@@ -1,0 +1,5 @@
+# estado local de gstack
+.gstack/
+
+# capturas de trabajo
+.preview/
